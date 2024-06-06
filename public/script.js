@@ -3,25 +3,47 @@
 
     // local storage content was inspired from https://github.com/robdongas/deco2017-task-tracker/blob/solutions/public/script.js and https://blog.logrocket.com/localstorage-javascript-complete-guide/ and https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec
 
-    // this function determines navigation in the UI
-    function makeVisible(option) {
-      var buttonOptions = document.querySelectorAll('.buttonOptions');
-      buttonOptions.forEach(list => {
-          list.style.display = 'none';
-      });
-    
-      var selectedButton = document.querySelectorAll(`.buttonOption${option}`);
-      selectedButton.forEach(list => {
-          list.style.display = 'block';
-      });
-    
-      console.log(option);
-    }
-    
+const popuphistory = document.querySelector('.popup');
+const popupedit = document.querySelector('.popupedit');
+
+
+
+//function to show text /instructions when nothing has been logged 
+function nologpopup(){
+if ( taskList.length === 0 ){
+  popuphistory.style.display= 'block' ;
+} else { 
+  popuphistory.style.display= 'none';
+};  
+
+//pop up to display on the edit tab
+if ( taskList.length === 0 ){
+  popupedit.style.display= 'block' ;
+} else { 
+  popupedit.style.display= 'none';
+};  
+}
+
+
+// this function determines navigation in the UI //interpereted from one of my previous assignments, website prototype for DECO1016 Introduction to Web Design
+function makeVisible(option) {
+  var buttonOptions = document.querySelectorAll('.buttonOptions');
+  buttonOptions.forEach(list => {
+      list.style.display = 'none';
+  });
+
+  var selectedButton = document.querySelectorAll(`.buttonOption${option}`);
+  selectedButton.forEach(list => {
+      list.style.display = 'block';
+  });
+
+  console.log(option);
+  nologpopup();
+}
     // load locally stored list of tasks or initialize an empty array for the tasks
     let taskList = JSON.parse(localStorage.getItem('taskList')) || [];
 
-    // we call updateListOfTasks() here so that if in any tasks were saved in localStorage, they will appear in the UI
+    // if in any tasks were saved in localStorage they will appear 
     updateListOfTasks();
 
     //this was created with the help of chat gpt 4-o. i input my previous code and asked it how it was possible to make the list show on both the history and the edit tabs. it came up with the parameters 
@@ -50,16 +72,17 @@
                 list.appendChild(listitem);
             });
 
-            // add the delete button only to edit one
-            if (parameters.editable) {
-              let deleteButton = document.createElement("button");
-              deleteButton.className = "deleteButton";
-              deleteButton.addEventListener("click", function (event) {
-                  taskList.splice(index, 1); // remove the task from taskList using its index
-                  updateListOfTasks(); // overwrite the list in the UI with the updated taskList
-              });
-              item.appendChild(deleteButton);
-          };
+       
+                 // add the delete button only to edit one if item is expanded or not
+                 if ((!item.expanded || item.expanded) && parameters.editable) {
+                    let deleteButton = document.createElement("button");
+                    deleteButton.className = "deleteButton";
+                    deleteButton.addEventListener("click", function (event) {
+                        taskList.splice(index, 1); // remove the task from taskList using its index
+                        updateListOfTasks(); // overwrite the list in the UI with the updated taskList
+                    });
+                    item.appendChild(deleteButton);
+                };
 
             // add an event listener to the task that toggles between label and label + task values when expanded
             item.addEventListener("click", function (event) {
@@ -70,6 +93,18 @@
                     item.appendChild(list); // add the list of details
                 }
                 item.appendChild(label); // add the task label
+
+                 // add the delete button only to edit one if item is expanded or not
+            if ((!item.expanded || item.expanded) && parameters.editable) {
+                let deleteButton = document.createElement("button");
+                deleteButton.className = "deleteButton";
+                deleteButton.addEventListener("click", function (event) {
+                    taskList.splice(index, 1); // remove the task from taskList using its index
+                    updateListOfTasks(); // overwrite the list in the UI with the updated taskList
+                });
+                item.appendChild(deleteButton);
+            };
+
             });
 
             // add the task item to the list of tasks

@@ -21,10 +21,12 @@ html {
     margin-bottom: 1em;
     color: #1BF2EF;
   }
+
+
 .instructions{
-  color: #00ffee;
+  color:#5e36e5;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 30px;
   font-size: 16px;
   
 }
@@ -94,7 +96,7 @@ html {
       max-width: 30vw;
       min-width: 400px;
       margin: 0 auto;
-      border: 2em ;
+      
       font-size: 1em;
       display:flex;
       flex-direction: column-reverse;
@@ -103,29 +105,42 @@ html {
 
 .labelclass{
   color: rgb(8, 20, 43);
+  
 }
 
 .tasknametext{
-  color: #ff0000;
+  align-content: flex-end;
+  display: inline-flex;
+ padding: 10px;
+ margin-left: 30px;
+ margin-top: 30px;
+  color:#121111
 }
+
 .taskdatetext{
   color: #00b3ff;
+  display: inline-flex;
+  border-radius: 10em;
+  background-color: #121111;
+  border-radius: 10em;
+  padding: 1em;
+ margin: 2em;
 }
-
-
 
   /* style delete button */
   .deleteButton{
+    display: inline-flex;
     margin-left: 410px;
-    display: flex;
     border: none;
     flex-direction: row;
     justify-content: flex-end;
     align-content: flex-end;
     background-color:#121111
   }
+
 /* style hover and x symbol */
   .deleteButton:hover:after{
+    display: inline-flex;
     content: "\d7";
     font-size: 40px; 
     color: red;
@@ -134,6 +149,7 @@ html {
   }
   /* style for - symbol */
   .deleteButton:after {
+    display: inline-flex;
     content: "\002D"; 
     font-size: 40px; 
     color: red;
