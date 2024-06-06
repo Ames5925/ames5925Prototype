@@ -1,0 +1,145 @@
+/* to do ///between forms smaller, make tab smaller, seperate input and value in tab, make two classes next to eachother,  add arrow to tabs, make history ect button purple   */
+
+header{
+  background-color: #201e1e;
+}
+
+body{
+  background-color: #121111;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+/* style the fittrack header*/               
+  header > h1 {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 1em;
+    color: #1BF2EF;
+  }
+.instructions{
+  color: #00ffee;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 16px;
+  
+}
+/* style of the form*/               
+  form {
+    width: 90vw;
+    max-width: 30vw;
+    min-width: 400px;
+    margin: 0 auto;
+    border: 2em ;
+    font-size: 1em;
+  }
+
+  /* style the layout of each row */           
+  .form-row {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+ /* style the label for the fields */           
+  .form-row > label {
+    z-index: 99999;
+    width: 10em;
+    background-color: aqua;
+    border-radius: 10em;
+    padding: 1em;
+   margin: 2em;
+   margin-right: 0;
+   border-right: 0;
+   padding-right: 0;
+  }
+
+ /* style the input fields */
+  .form-row > input {
+    background-color: #201e1e;
+    border-top-right-radius:10em ;
+    border-bottom-right-radius:10em ;
+    border: none;
+    padding-left: 0;
+    flex-grow: 1;
+    margin: 2em;
+    margin-left: -20px;
+   border-left: 0;
+   padding-left: 0;
+   text-indent: 30px;
+   color: aliceblue;
+  }
+
+  .form-row > input[type=submit]{
+    background-color: #5e36e5;
+    border-radius: 10em;
+    margin: 2em;
+    height: 3em;
+    width: 10px;
+  }
+
+  ::placeholder{
+    font-size: 12px;
+    opacity: 90%;
+  }
+
+  /* style the list and reverse the order to ensure newest input is at the top */
+  .tasklist{
+  color: #121111;
+      background-color: aqua;
+      border-radius: 100px;
+      max-width: 30vw;
+      min-width: 400px;
+      margin: 0 auto;
+      border: 2em ;
+      font-size: 1em;
+      display:flex;
+      flex-direction: column-reverse;
+      list-style-type: none;
+  }
+
+.labelclass{
+  color: rgb(8, 20, 43);
+}
+
+.tasknametext{
+  color: #ff0000;
+}
+.taskdatetext{
+  color: #00b3ff;
+}
+
+
+
+  /* style delete button */
+  .deleteButton{
+    margin-left: 410px;
+    display: flex;
+    border: none;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: flex-end;
+    background-color:#121111
+  }
+/* style hover and x symbol */
+  .deleteButton:hover:after{
+    content: "\d7";
+    font-size: 40px; 
+    color: red;
+    text-align: center;
+   
+  }
+  /* style for - symbol */
+  .deleteButton:after {
+    content: "\002D"; 
+    font-size: 40px; 
+    color: red;
+    text-align: center;
+}
+
+
+ 
+
