@@ -6,6 +6,9 @@
 const popuphistory = document.querySelector('.popup');
 const popupedit = document.querySelector('.popupedit');
 
+//make date with no time 
+const date= new Date();
+const formattedDate = date.getDate() + '/'+ (date.getMonth()+1)+ '/' + date.getFullYear();
 
 
 //function to show text /instructions when nothing has been logged 
@@ -68,12 +71,13 @@ function makeVisible(option) {
             let list = document.createElement("ul");
             ["type", "weight", "reps", "sets", "distance", "time"].forEach(value => {
                 let listitem = document.createElement("li");
+                listitem.classList.add('listclass')
                 listitem.innerHTML = `<p class ="expandlist"> <strong>${value}</strong></p> <p class ="expandlistvalue"> ${task[value]}</p>`;
                 list.appendChild(listitem);
             });
 
        
-                 // add the delete button only to edit one if item is expanded or not
+                 // add the delete button only to edit tab
                  if ((!item.expanded || item.expanded) && parameters.editable) {
                     let deleteButton = document.createElement("button");
                     deleteButton.className = "deleteButton";
@@ -91,10 +95,21 @@ function makeVisible(option) {
 
                 if (item.expanded) {
                     item.appendChild(list); // add the list of details
+                    item.style.paddingBottom = "50px"; //extend size
+                    item.style.paddingLeft = "10px"; //extend size
+                    item.style.paddingRight = "10px"; //extend size
                 }
+
+                if (!item.expanded) {
+                    item.style.paddingBottom = "0px"; //return size back to orginal
+                    item.style.paddingLeft = "0px"; 
+                    item.style.paddingRight = "0px"; 
+                }
+                
+
                 item.appendChild(label); // add the task label
 
-                 // add the delete button only to edit one if item is expanded or not
+                 // add the delete button only to edit tab// make sure its applied to expanded and not
             if ((!item.expanded || item.expanded) && parameters.editable) {
                 let deleteButton = document.createElement("button");
                 deleteButton.className = "deleteButton";
@@ -102,7 +117,7 @@ function makeVisible(option) {
                     taskList.splice(index, 1); // remove the task from taskList using its index
                     updateListOfTasks(); // overwrite the list in the UI with the updated taskList
                 });
-                item.appendChild(deleteButton);
+                item.appendChild(deleteButton); //add to every item 
             };
 
             });
@@ -130,7 +145,7 @@ function makeVisible(option) {
             displayList({ editable: true })
         );
 
-        // persist the task list to local storage
+        //  put task list to local storage
         localStorage.setItem('taskList', JSON.stringify(taskList));
     };
 
@@ -153,7 +168,7 @@ function makeVisible(option) {
             sets: event.target.elements.sets.value,
             distance: event.target.elements.distance.value,
             time: event.target.elements.time.value,
-            date: new Date().toISOString(),
+            date: formattedDate,
         });
 
         updateListOfTasks(); // update the list of tasks        
