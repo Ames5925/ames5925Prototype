@@ -1,4 +1,6 @@
 
+
+
 body{
   background-color: #121111;
 }
@@ -8,6 +10,26 @@ html {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  #log-tab2{
+  font-family: "Orbitron", sans-serif;
+  color: #5e36e5;
+  }
+
+  #history-tab2{
+    font-family: "Orbitron", sans-serif;
+    color: #5e36e5;
+  }
+
+  #edit-tab2{
+    font-family: "Orbitron", sans-serif;
+    color: #5e36e5;
+  }
+
+  #edit-tab:hover:after{
+    color: #1BF2EF;
+  }
+
 
 /* header container  */
   header {
@@ -21,6 +43,7 @@ html {
 
 /* header text */
 header > h1 {
+  font-family: "Orbitron", sans-serif;
   font-size: 3em;
   color: #1BF2EF;
   margin: 0; 
@@ -60,6 +83,7 @@ header > h1 {
 
  /* style the label for the fields */           
   .form-row > label {
+    font-family: "Pixelify Sans", sans-serif;
     z-index: 99999;
     width: 10em;
     background-color: aqua;
@@ -88,6 +112,7 @@ header > h1 {
   }
 /* submit button */
   .form-row > input[type=submit]{
+    font-family: "Pixelify Sans", sans-serif;
     background-color: #5e36e5;
     border-radius: 10em;
     margin: 2em;
@@ -104,6 +129,7 @@ header > h1 {
 
   /* confirnation popup  */
   .confirmpopup{
+    font-family: "Pixelify Sans", sans-serif;
     color: #00ff33;
     text-align: center;
     padding-top: 10px;
@@ -112,33 +138,33 @@ header > h1 {
     margin: auto;
     background-color: #201e1e;
     border-radius: 100px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
     }
 
     /* no log popup history screen */
   .popup{
+    font-family: "Pixelify Sans", sans-serif;
   color: #00ff33;
 text-align: center;
 margin: auto;
 margin-top: 200px;
-width: 400px;
+width: 300px;
 font-size: 3vw;
-font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 background-color: #201e1e;
     border-radius: 100px;
   }
 
 /* no log pop up edit screeb */
   .popupedit{
+    font-family: "Pixelify Sans", sans-serif;
 color: #00ff33;
 text-align: center;
 margin: auto;
 margin-top: 200px;
-width: 400px;
+width: 300px;
 font-size: 3vw;
 background-color: #201e1e;
     border-radius: 100px;
-font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
 
@@ -157,7 +183,14 @@ font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans 
       display:flex;
       flex-direction: column-reverse;
       list-style-type: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
   }
+  .reverselist{
+        display:flex;
+        flex-direction: column-reverse;
+  }
+
 
 /* class for items hidden in expanded (Values) */
 .listclass{
@@ -177,7 +210,7 @@ padding-right: 15px;
 /* excercise name  */
 .tasknametext{
   text-transform: uppercase;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Pixelify Sans", sans-serif;
   font-size: 14px;
   font-weight: bold;
   align-content: flex-end;
@@ -218,17 +251,15 @@ padding-right: 15px;
 
   /* style delete button */
   .deleteButton{
-    display: flex;
-  flex-direction: row-reverse;
-   align-content: end;
-   justify-content: flex-end;
+display: inline;
     width: 20px;
+    margin-left: -50px;
     border: none;
     flex-direction: row;
     background-color:#121111;
   }
 
-/* style hover and x symbol */
+/* style hover and x symbol for delete button */
   .deleteButton:hover:after{
     content: "\d7";
     font-size: 40px; 
@@ -236,7 +267,7 @@ padding-right: 15px;
     text-align: center;
   }
 
-  /* style for - symbol */
+  /* style for - symbol for delete button */
   .deleteButton:after {
     content: "\002D"; 
     font-size: 40px; 

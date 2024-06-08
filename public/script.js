@@ -1,8 +1,6 @@
 
-    // <!--todo- first log shows at bottom of form screen not sure why, make date only show date not time, add no logged pop up -->
-
-    // local storage content was inspired from https://github.com/robdongas/deco2017-task-tracker/blob/solutions/public/script.js and https://blog.logrocket.com/localstorage-javascript-complete-guide/ and https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec
-
+   
+// local storage content was inspired from https://github.com/robdongas/deco2017-task-tracker/blob/solutions/public/script.js and https://blog.logrocket.com/localstorage-javascript-complete-guide/ and https://thecodingpie.medium.com/how-to-build-a-todo-list-app-with-javascript-and-local-storage-a884f4ea3ec
 const popuphistory = document.querySelector('.popup');
 const popupedit = document.querySelector('.popupedit');
 
@@ -53,6 +51,7 @@ function makeVisible(option) {
     // create an element with the list of tasks and optional delete buttons
     function displayList(parameters = {}) {
         let listElement = document.createElement("ul");
+        listElement.classList.add('reverselist');
 
         // add each task as an element to the list element
         taskList.map(function (task, index) {
@@ -95,9 +94,10 @@ function makeVisible(option) {
 
                 if (item.expanded) {
                     item.appendChild(list); // add the list of details
-                    item.style.paddingBottom = "50px"; //extend size
+                    item.style.paddingBottom = "30px"; //extend size
                     item.style.paddingLeft = "10px"; //extend size
                     item.style.paddingRight = "10px"; //extend size
+                    item.style.borderRadius= "50px";
                 }
 
                 if (!item.expanded) {
@@ -131,6 +131,7 @@ function makeVisible(option) {
 
     // overwrite the list of tasks in the UI
     function updateListOfTasks() {
+
         // overwrite the history list
         let documentTaskList = document.getElementById("tasklist");
         documentTaskList.innerHTML = "";
@@ -157,6 +158,8 @@ function makeVisible(option) {
         // show submission confirm popup
         let submitpopup = document.querySelector('.confirmpopup')
         submitpopup.style.display = 'block'; 
+        
+      
 
         // add a new task to taskList
         taskList.push({
